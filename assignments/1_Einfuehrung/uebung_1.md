@@ -28,10 +28,3 @@ Bitte laden Sie in **25 min** ein Bild (Foto, Screenshot) hier hoch:
 ## Zusatzinformation
 
 Das indexierte Preisniveau stieg von 2015 bis 2023 von **100** auf **123,5**.
-
-### Ergebnis der Berechnung
-
-Berechnung der prozentualen Veränderung des Verbraucherpreisindex für Deutschland:
-
-- **Prozentuale Veränderung:** 23,5 %
-- Beträgt die prozentuale Veränderung vom Indexstand des Jahres 2015 bis zum gewählten Indexstand des Jahres 2023.
