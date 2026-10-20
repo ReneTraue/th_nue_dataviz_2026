@@ -1,4 +1,4 @@
-# Lecture 2: Statische Visualisierung
+# Lecture 3: Statische Visualisierung
 
 Diese Seite fasst die Lab Session zusammen und dient als Referenz beim Bearbeiten der Aufgaben.
 
