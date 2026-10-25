@@ -1,0 +1,112 @@
+:root {
+    --ink: #102a43;
+    --muted: #627d98;
+    --paper: #f5f7f4;
+    --card: #ffffff;
+    --teal: #2a9d8f;
+    --blue: #184e77;
+    --orange: #f4a261;
+    --line: #d9e2ec;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.app-shell { min-height: 100vh; }
+
+.hero {
+    padding: 54px max(5vw, 24px) 92px;
+    color: white;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(244, 162, 97, .35), transparent 23rem),
+        linear-gradient(125deg, #102a43, #184e77 58%, #2a9d8f);
+}
+
+.hero h1 {
+    max-width: 1180px;
+    margin: 8px auto 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.7rem, 7vw, 5.5rem);
+    font-weight: 500;
+    letter-spacing: -.045em;
+    line-height: .95;
+}
+
+.hero p, .hero .eyebrow {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero p { max-width: 1180px; font-size: 1.12rem; line-height: 1.65; color: #d9f0ed; }
+.eyebrow, .section-tag { font-size: .72rem; font-weight: 800; letter-spacing: .16em; }
+.eyebrow { color: #ffd6a5; }
+.section-tag { color: var(--teal); }
+
+main {
+    width: min(1180px, calc(100% - 32px));
+    margin: -52px auto 48px;
+}
+
+.control-panel, .chart-card, .learning-card, .kpi-card {
+    border: 1px solid rgba(16, 42, 67, .09);
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: 0 14px 40px rgba(16, 42, 67, .07);
+}
+
+.control-panel {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 26px;
+    padding: 24px 28px 30px;
+}
+
+.control label { display: block; margin-bottom: 14px; font-size: .82rem; font-weight: 750; }
+.radio-group { display: flex; flex-wrap: wrap; gap: 9px 18px; font-size: .85rem; }
+.radio-group label { display: flex; gap: 5px; margin: 0; font-weight: 500; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0; }
+.kpi-card { display: flex; flex-direction: column; min-height: 116px; padding: 20px; border-radius: 14px; box-shadow: none; }
+.kpi-card span { color: var(--muted); font-size: .74rem; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
+.kpi-card strong { margin: 10px 0 5px; font-family: Georgia, serif; font-size: 1.65rem; font-weight: 500; }
+.kpi-card small { margin-top: auto; color: var(--muted); }
+.kpi-empty { grid-column: 1 / -1; }
+
+.chart-card { padding: 23px; }
+.chart-card-wide { margin-bottom: 18px; }
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.card-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 6px; }
+.card-heading h2, .learning-card h2 { margin: 6px 0 0; font-family: Georgia, serif; font-size: 1.65rem; font-weight: 500; }
+.card-heading p { max-width: 310px; margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.5; text-align: right; }
+
+.learning-card { margin-top: 18px; padding: 30px; background: #edf7f5; border-color: #cde8e2; box-shadow: none; }
+.learning-card h2 { max-width: 730px; font-size: 2rem; }
+.learning-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
+.learning-grid div { border-top: 2px solid var(--teal); padding-top: 15px; }
+.learning-grid strong { font-size: .86rem; }
+.learning-grid p { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+
+footer { padding: 28px; color: var(--muted); font-size: .78rem; text-align: center; }
+
+@media (max-width: 860px) {
+    .control-panel, .chart-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .learning-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+@media (max-width: 560px) {
+    .hero { padding-top: 38px; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .card-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
+    .card-heading p { text-align: left; }
+    .chart-card { padding: 17px 10px; }
+    .control-panel { padding: 22px 18px 28px; }
+}
+
