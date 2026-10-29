@@ -1,4 +1,4 @@
-"""Didaktisches Plotly-Dash-Dashboard auf Basis des Gapminder-Datensatzes."""
+""" Plotly-Dash-Dashboard auf Basis des Gapminder-Datensatzes."""
 
 from __future__ import annotations
 
@@ -8,9 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
-# -----------------------------------------------------------------------------
 # 1. Daten laden und Konstanten definieren
-# -----------------------------------------------------------------------------
 DF = px.data.gapminder()
 # Native Python-Typen vermeiden JSON-Probleme mit NumPy-Skalaren im Dash-Layout.
 YEARS = sorted(int(year) for year in DF["year"].unique())
@@ -62,9 +60,7 @@ def format_compact(value: float) -> str:
     return f"{value:,.0f}".replace(",", ".")
 
 
-# -----------------------------------------------------------------------------
 # 2. App und statisches Layout definieren
-# -----------------------------------------------------------------------------
 app = Dash(__name__)
 app.title = "Gapminder Explorer"
 server = app.server
@@ -197,7 +193,7 @@ app.layout = html.Div(
                 html.Section(
                     className="learning-card",
                     children=[
-                        html.Span("DIDAKTISCHES MUSTER", className="section-tag"),
+                        html.Span("Interaktive Datenvisualisierung - Prinzipien", className="section-tag"),
                         html.H2("Overview first, zoom and filter, then details-on-demand"),
                         html.Div(
                             className="learning-grid",
@@ -216,9 +212,7 @@ app.layout = html.Div(
 )
 
 
-# -----------------------------------------------------------------------------
 # 3. Reaktive Logik: Inputs verändern mehrere Outputs
-# -----------------------------------------------------------------------------
 @callback(
     Output("kpi-row", "children"),
     Output("bubble-chart", "figure"),
@@ -340,4 +334,3 @@ def update_country_history(click_data: dict | None, metric: str):
 
 if __name__ == "__main__":
     app.run(debug=True)
-

@@ -1,36 +1,19 @@
-# Lecture 4 Gapminder Explorer – ein Plotly-Dash-Beispiel
+# Lecture 4 Interaktive Datenvisualisierung: Gapminder Explorer – ein Plotly-Dash-Beispiel
 
-Dieses Beispiel zeigt, wie aus einem Plotly-Diagramm ein interaktives **Dashboard** wird. 
-Die App verbindet hierfür einen Bubble Chart, ein Histogramm, Kennzahlen und einen Länder-Zeitverlauf. Jahr und Kontinent wirken als gemeinsame Filter; ein Klick auf einen Punkt öffnet die Detailansicht des Landes.
+Dieses Beispiel zeigt, wie aus einem Plotly-Diagramm ein interaktives **Dashboard** wird. Weitere Beispiele für Plotly-Dash Apps unter https://plotly.com/examples/. 
+
+
+Die App in diesem Notebook basiert auf den Gapminder Daten und verbindet einen Bubble Chart, ein Histogramm, Kennzahlen und einen Länder-Zeitverlauf. Jahr und Kontinent wirken als gemeinsame Filter; ein Klick auf einen Punkt öffnet die Detailansicht des Landes.
 
 ## Lernziele
-Nach dem Durcharbeiten kannst du:
+Nach dem Durcharbeiten des Codes und den Vorlesungsmaterialien kannst du:
 
 1. den Unterschied zwischen **Plotly** (Diagramme) und **Dash** (Webanwendung) erklären,
 2. ein Dash-Layout aus Komponenten zusammensetzen,
 3. mit Callbacks Eingaben (`Input`) und Ausgaben (`Output`) verbinden,
 4. mehrere Visualisierungen konsistent aus einer gefilterten Datenbasis aktualisieren,
 5. Klickdaten eines Diagramms für eine zweite Ansicht verwenden.
-
-## Installation und Start
-
-Öffne PowerShell (Windows) in diesem Ordner und führe aus, um ein virtuelles Environment zu erstellen:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python app.py
-```
-
-Öffne anschließend die im Terminal angezeigte Localhost Adresse, normalerweise <http://127.0.0.1:8050>.
-
-Falls im Repository bereits die übergeordnete virtuelle Umgebung aktiviert ist, genügen:
-
-```powershell
-python -m pip install -r requirements.txt
-python app.py
-```
+6. Verständis für Applications mit Plotly-Dash.
 
 ## Die fünf Bausteine in Plotly Dash
 
@@ -44,7 +27,7 @@ Der Gapminder-Datensatz wird mit Plotly Express ausgeliefert. Jede Zeile beschre
 
 ### 2. Komponenten
 
-Dash-Oberflächen bestehen aus Komponenten:
+**Plotly Dash**-Oberflächen bestehen aus Komponenten:
 
 - `html.*` erzeugt HTML-Strukturen wie Überschriften, Abschnitte und Karten.
 - `dcc.*` liefert interaktive Komponenten wie Slider, Dropdowns und Diagramme.
@@ -123,13 +106,34 @@ Dabei gilt: **Interaktivität ist kein Selbstzweck**. Jede **Interaktion beantwo
 | `update_country_history()` | Details nach einem Klick |
 | `app.run()` | lokaler Entwicklungsserver |
 
-## Bonus: Sinnvolle Lernaufgaben 
+## Bonus: Sinnvolle Lernaufgaben zur Erweiterung der App
 
+0. Zusätzliche Daten aus dem Gapminder Projekt ergänzen (www.gapminder.org/data/)
 1. Ergänze einen **Schalter** für eine lineare/logarithmische X-Achse.
 2. Füge eine **Weltkarte** hinzu, die auf dieselben Filter reagiert.
 3. Erlaube die **Auswahl mehrerer Länder** im Zeitverlauf.
 4. Zeichne im Zeitverlauf eine **vertikale Linie für das aktuell gewählte Jahr** ein.
 5. Ergänze einen **Download-Button** für die aktuell gefilterten Daten.
+
+## Installation und Start
+
+Öffne PowerShell (Windows) in diesem Ordner und führe aus, um ein virtuelles Environment zu erstellen:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python app.py
+```
+
+Öffne anschließend die im Terminal angezeigte Localhost Adresse in deinem Browser, normalerweise <http://127.0.0.1:8050>.
+
+Falls im Repository bereits die übergeordnete virtuelle Umgebung aktiviert ist, genügen:
+
+```powershell
+python -m pip install -r requirements.txt
+python app.py
+```
 
 ## Typische Stolpersteine
 
@@ -138,4 +142,3 @@ Dabei gilt: **Interaktivität ist kein Selbstzweck**. Jede **Interaktion beantwo
 - `Dropdown(multi=True)` liefert eine Liste, ein einfaches Dropdown normalerweise einen Einzelwert.
 - Leere Filterergebnisse brauchen einen verständlichen Zustand; die App zeigt deshalb eine erklärende leere Figure.
 - `debug=True` ist für die Entwicklung praktisch, aber nicht die empfohlene Produktionseinstellung.
-
